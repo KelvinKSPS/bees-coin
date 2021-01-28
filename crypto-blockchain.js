@@ -3,7 +3,7 @@ const CryptoBlock = require('./crypto-block');
 class CryptoBlockchain {
     constructor() {
         this.blockchain = [this.startGenesisBlock()];
-        this.difficulty = 4;
+        this.difficulty = 5;
     }
     startGenesisBlock() {
         return new CryptoBlock(0, "28/01/2021", "Iniciando o bloco", "0");
@@ -12,6 +12,7 @@ class CryptoBlockchain {
     obtainLatestBlock() {
         return this.blockchain[this.blockchain.length - 1];
     }
+
     addNewBlock(newBlock) {
         newBlock.precedingHash = this.obtainLatestBlock().hash;
         //newBlock.hash = newBlock.computeHash();

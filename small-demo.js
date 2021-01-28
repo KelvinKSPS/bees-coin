@@ -37,7 +37,7 @@ while (true) {
     let recipient = prompt("ID de Destino: ");
     let quantity = parseFloat(prompt("Quantidade: "));
 
-    console.log("mineirando...")
+    console.log("minerando...")
     sidiCoin.addNewBlock(
         new CryptoBlock(++starterBlock, "28/01/2021", {
             sender, recipient, quantity
