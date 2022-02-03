@@ -1,25 +1,35 @@
 const prompt = require('prompt-sync')();
-const CryptoBlock = require('./crypto-block');
-const CryptoBlockchain = require('./crypto-blockchain');
+const CryptoBlock = require('../core/crypto-block');
+const CryptoBlockchain = require('../core/crypto-blockchain');
 
 
-let sidiCoin = new CryptoBlockchain();
+let beesCoin = new CryptoBlockchain();
 
 console.log("Minerando o bloco....");
 
-sidiCoin.addNewBlock(
+beesCoin.addNewBlock(
     new CryptoBlock(1, "28/01/2021", {
-        sender: "SiDier Raiz",
-        recipient: "Threestar Joseph",
-        quantity: 50
+        sender: "Zé Colmeia",
+        recipient: "Beedrill",
+        objects: [{
+            name: "Becks",
+            quantity: 50
+        }]
+
     })
 );
 
-sidiCoin.addNewBlock(
+
+console.log("Primeiro bloco minerado!\n");
+
+beesCoin.addNewBlock(
     new CryptoBlock(2, "28/01/2021", {
-        sender: "Light Yagami",
-        recipient: "Jonas Matos",
-        quantity: 100
+        sender: "Beedrill",
+        recipient: "Ambévio",
+        objects: [{
+            name: "H20 Limoneto",
+            quantity: 50
+        }]
     })
 );
 
@@ -38,14 +48,14 @@ while (true) {
     let quantity = parseFloat(prompt("Quantidade: "));
 
     console.log("minerando...")
-    sidiCoin.addNewBlock(
+    beesCoin.addNewBlock(
         new CryptoBlock(++starterBlock, "28/01/2021", {
             sender, recipient, quantity
         })
     );
 
-    console.log(JSON.stringify(sidiCoin, null, 4));
+    console.log(JSON.stringify(beesCoin, null, 4));
 }
 
 console.log("Validando a blockchain");
-console.log(sidiCoin.checkChainValidity() ? "Válida!" : "Inválida");
+console.log(beesCoin.checkChainValidity() ? "Válida!" : "Inválida");

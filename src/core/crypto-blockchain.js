@@ -15,7 +15,6 @@ class CryptoBlockchain {
 
     addNewBlock(newBlock) {
         newBlock.precedingHash = this.obtainLatestBlock().hash;
-        //newBlock.hash = newBlock.computeHash();
         newBlock.proofOfWork(this.difficulty);
         this.blockchain.push(newBlock);
     }
